@@ -47,6 +47,5 @@ pip install -r requirements.txt
 
 
 ### 6. Ejecutar Aplicación
-# Método 1
 python app.py
 
