@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Six Sigma</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Six Sigma</h1>
+        
+        <div class="calculator-grid">
+            <div class="input-section">
+                <div class="input-group">
+                    <label>Número de defectos 
+                        <span class="tooltip" data-tip="Total de defectos encontrados en la inspección">?</span>
+                    </label>
+                    <input type="number" id="defects" min="0" step="any" placeholder="Ingrese número de defectos">
+                </div>
+                <div class="input-group">
+                    <label>Número de unidades
+                        <span class="tooltip" data-tip="Total de unidades inspeccionadas">?</span>
+                    </label>
+                    <input type="number" id="units" min="1" step="any" placeholder="Ingrese número de unidades">
+                </div>
+                <div class="input-group">
+                    <label>Oportunidades por unidad
+                        <span class="tooltip" data-tip="Número de posibles defectos por cada unidad">?</span>
+                    </label>
+                    <input type="number" id="opportunities" min="1" step="any" placeholder="Ingrese oportunidades">
+                </div>
+            </div>
+
+            <div class="results-section">
+                <h2>Resultados</h2>
+                <div id="error-message" style="display:none;"></div>
+                <div class="result-item">
+                    <span>Nivel Sigma:</span>
+                    <span id="sigma">-</span>
+                </div>
+                <div class="result-item">
+                    <span>Rendimiento:</span>
+                    <span id="yield">-</span>
+                </div>
+                <div class="result-item">
+                    <span>Defectos (%):</span>
+                    <span id="defects_percent">-</span>
+                </div>
+                <div class="result-item">
+                    <span>DPMO:</span>
+                    <span id="dpmo">-</span>
+                </div>
+                <!-- Este div muestra el valor de RTY (Rolled Throughput Yield) en porcentaje -->
+                <div class="result-item">
+                    <span>RTY (%):</span>
+                    <span id="rty">-</span>
+                </div>
+                <div class="result-item">
+                    <span>Unidades defectuosas (%):</span>
+                    <span id="defective_units">-</span>
+                </div>
+                <div class="result-item">
+                    <span>DPM:</span>
+                    <span id="dpm">-</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="conversion-table">
+            <h2>Tabla de Conversión Sigma</h2>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nivel Sigma</th>
+                            <th>DPMO</th>
+                            <th>Rendimiento</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>2σ</td><td>308,537</td><td>69.2%</td></tr>
+                        <tr><td>3σ</td><td>66,807</td><td>93.3%</td></tr>
+                        <tr><td>4σ</td><td>6,210</td><td>99.38%</td></tr>
+                        <tr><td>5σ</td><td>233</td><td>99.977%</td></tr>
+                        <tr><td>6σ</td><td>3.4</td><td>99.9997%</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
