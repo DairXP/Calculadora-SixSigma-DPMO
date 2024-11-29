@@ -22,7 +22,7 @@ git clone https://github.com/DairXP/Calculadora-SixSigma-DPMO.git
 cd Calculadora-SixSigma-DPMO
 ```
 
-# 2. Crear Entorno Virtual
+### 2. Crear Entorno Virtual
 # Windows
 python -m venv venv
 
