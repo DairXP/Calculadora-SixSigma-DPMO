@@ -3,38 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Six Sigma</title>
+    <title>Calculadora Six Sigma</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
     <div class="container">
-        <h1 class="title">Six Sigma</h1>
+        <h1 class="title">Calculadora Six Sigma</h1>
         
         <div class="calculator-grid">
             <div class="input-section">
                 <div class="input-group">
-                    <label>Número de defectos 
-                        <span class="tooltip" data-tip="Total de defectos encontrados en la inspección">?</span>
-                    </label>
-                    <input type="number" id="defects" min="0" step="any" placeholder="Ingrese número de defectos">
+                    <label>Número de defectos <span class="tooltip" data-tip="Total de defectos encontrados">?</span></label>
+                    <input type="number" id="defects" min="0" placeholder="Ingrese cantidad">
                 </div>
                 <div class="input-group">
-                    <label>Número de unidades
-                        <span class="tooltip" data-tip="Total de unidades inspeccionadas">?</span>
-                    </label>
-                    <input type="number" id="units" min="1" step="any" placeholder="Ingrese número de unidades">
+                    <label>Número de unidades <span class="tooltip" data-tip="Total de unidades inspeccionadas">?</span></label>
+                    <input type="number" id="units" min="1" placeholder="Ingrese cantidad">
                 </div>
                 <div class="input-group">
-                    <label>Oportunidades por unidad
-                        <span class="tooltip" data-tip="Número de posibles defectos por cada unidad">?</span>
-                    </label>
-                    <input type="number" id="opportunities" min="1" step="any" placeholder="Ingrese oportunidades">
+                    <label>Oportunidades por unidad <span class="tooltip" data-tip="Posibles defectos por unidad">?</span></label>
+                    <input type="number" id="opportunities" min="1" placeholder="Ingrese cantidad">
                 </div>
             </div>
 
             <div class="results-section">
                 <h2>Resultados</h2>
-                <div id="error-message" style="display:none;"></div>
+                <div id="error-message"></div>
                 <div class="result-item">
                     <span>Nivel Sigma:</span>
                     <span id="sigma">-</span>
@@ -51,7 +46,6 @@
                     <span>DPMO:</span>
                     <span id="dpmo">-</span>
                 </div>
-                <!-- Este div muestra el valor de RTY (Rolled Throughput Yield) en porcentaje -->
                 <div class="result-item">
                     <span>RTY (%):</span>
                     <span id="rty">-</span>
@@ -88,7 +82,20 @@
                 </table>
             </div>
         </div>
+
+        <div class="chart-section">
+            <div class="chart-container">
+                <canvas id="sigmaChart"></canvas>
+            </div>
+        </div>
+
+        <div class="interpretation-section">
+            <h2>Interpretación</h2>
+            <div id="interpretation" class="interpretation-content"></div>
+        </div>
     </div>
+
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/chart.js') }}"></script>
 </body>
 </html>

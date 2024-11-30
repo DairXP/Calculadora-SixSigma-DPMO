@@ -1,4 +1,3 @@
-/* static/styles.css */
 :root {
     --primary: #722F37;
     --secondary: #f9f2f4;
@@ -41,49 +40,19 @@ body {
     margin-bottom: 20px;
 }
 
-.tooltip {
-    position: relative;
-    display: inline-block;
-    margin-left: 5px;
-    width: 16px;
-    height: 16px;
-    background: var(--primary);
-    color: white;
-    border-radius: 50%;
-    text-align: center;
-    cursor: help;
-    font-size: 12px;
-    line-height: 16px;
-}
-
-.tooltip:hover::before {
-    content: attr(data-tip);
-    position: absolute;
-    background: var(--primary);
-    color: white;
-    padding: 8px;
-    border-radius: 4px;
-    width: 200px;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 100%;
-    margin-bottom: 10px;
-    font-size: 14px;
-    z-index: 1;
-}
-
 @media (min-width: 768px) {
     .calculator-grid {
         grid-template-columns: 1fr 1fr;
     }
 }
 
-.input-section, .results-section, .conversion-table {
+.input-section, .results-section, .chart-section, .interpretation-section {
     background: white;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 6px var(--shadow);
     border: 2px solid var(--border);
+    margin-bottom: 20px;
 }
 
 .input-group {
@@ -112,14 +81,34 @@ body {
     box-shadow: 0 0 5px var(--shadow);
 }
 
-.input-group input::placeholder {
-    color: #999;
+.tooltip {
+    position: relative;
+    display: inline-block;
+    margin-left: 5px;
+    width: 16px;
+    height: 16px;
+    background: var(--primary);
+    color: white;
+    border-radius: 50%;
+    text-align: center;
+    cursor: help;
+    font-size: 12px;
 }
 
-.results-section h2,
-.conversion-table h2 {
-    color: var(--primary);
-    margin-bottom: 20px;
+.tooltip:hover::before {
+    content: attr(data-tip);
+    position: absolute;
+    background: var(--primary);
+    color: white;
+    padding: 8px;
+    border-radius: 4px;
+    width: 200px;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 100%;
+    margin-bottom: 10px;
+    font-size: 14px;
+    z-index: 1;
 }
 
 .result-item {
@@ -133,27 +122,54 @@ body {
     border-bottom: none;
 }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
+.chart-container {
+    height: 400px;
+    margin: 20px 0;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-th, td {
+.conversion-table {
+    margin-top: 20px;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px var(--shadow);
+    border: 2px solid var(--border);
+}
+
+.conversion-table table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+.conversion-table th, .conversion-table td {
     padding: 12px;
     text-align: center;
     border: 1px solid var(--border);
 }
 
-th {
+.conversion-table th {
     background: var(--primary);
     color: white;
+    font-weight: bold;
 }
 
-tr:nth-child(even) {
+.conversion-table tbody tr:nth-child(odd) {
     background: var(--secondary);
 }
 
+#interpretation {
+    margin-top: 10px;
+    line-height: 1.6;
+    color: var(--text);
+}
+
 #error-message {
+    display: none;
     padding: 10px;
     background: #ffebee;
     border: 1px solid #ef9a9a;
@@ -161,3 +177,39 @@ tr:nth-child(even) {
     margin-bottom: 15px;
     color: #c62828;
 }
+
+
+/* Añadir a static/styles.css */
+
+.interpretation-details {
+    padding: 15px;
+}
+
+.interpretation-details h3 {
+    color: var(--primary);
+    margin: 20px 0 10px;
+    font-size: 1.1em;
+}
+
+.interpretation-details p {
+    margin: 8px 0;
+    line-height: 1.5;
+}
+
+.interpretation-details strong {
+    color: var(--accent);
+}
+
+.interpretation-section {
+    margin-top: 30px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px var(--shadow);
+}
+
+.interpretation-section h2 {
+    color: var(--primary);
+    padding: 15px;
+    border-bottom: 2px solid var(--border);
+}
+
